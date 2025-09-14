@@ -45,12 +45,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  test3.addEventListener('click', async () => {
+  test2.addEventListener('click', async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    await chrome.tabs.sendMessage(tab.id, { action: 'startSequentialDownload', testLimit: 3 });
-    status.textContent = 'Testing with 3 accounts...';
+    await chrome.tabs.sendMessage(tab.id, { action: 'startSequentialDownload', testLimit: 2 });
+    status.textContent = 'Testing with 2 accounts...';
     status.className = 'processing';
   });
+
+  // test3.addEventListener('click', async () => {
+  //   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  //   await chrome.tabs.sendMessage(tab.id, { action: 'startSequentialDownload', testLimit: 3 });
+  //   status.textContent = 'Testing with 3 accounts...';
+  //   status.className = 'processing';
+  // });
 
   startAll.addEventListener('click', async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
