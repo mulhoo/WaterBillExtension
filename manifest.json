@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Water Bill Auto Downloader",
+  "version": "1.0",
+  "description": "Automatically downloads water bills",
+
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://*.paymentus.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.paymentus.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  }
+}
