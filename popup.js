@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const loadScript = document.getElementById('loadScript');
-  const test2 = document.getElementById('test2');
-  const test3 = document.getElementById('test3');
+  // const test2 = document.getElementById('test2');
+  // const test3 = document.getElementById('test3');
   const startAll = document.getElementById('startAll');
   const status = document.getElementById('status');
 
@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
           if (response && response.isWaterBillPage) {
             status.textContent = `Found ${response.clientCount} accounts (${response.pageType})`;
             status.className = 'success';
-            test2.disabled = false;
-            test3.disabled = false;
+            // test2.disabled = false;
+            // test3.disabled = false;
             startAll.disabled = false;
           } else {
             status.textContent = 'No water bill accounts found on this page';
@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  test2.addEventListener('click', async () => {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    await chrome.tabs.sendMessage(tab.id, { action: 'startSequentialDownload', testLimit: 2 });
-    status.textContent = 'Testing with 2 accounts...';
-    status.className = 'processing';
-  });
+  // test2.addEventListener('click', async () => {
+  //   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  //   await chrome.tabs.sendMessage(tab.id, { action: 'startSequentialDownload', testLimit: 2 });
+  //   status.textContent = 'Testing with 2 accounts...';
+  //   status.className = 'processing';
+  // });
 
   // test3.addEventListener('click', async () => {
   //   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
